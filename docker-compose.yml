@@ -1,0 +1,24 @@
+version: '3.9'
+services:
+  mongo_db:
+    container_name: db_container
+    image: mongo:latest
+    restart: always
+    volumes:
+      - mongo_db:/data/db
+  
+  api:
+    container_name: api_container
+    build: .
+    ports:
+      - 5173:5173
+    environment:
+      - ACCESS_TOKEN_SECRET=ugiugsdai2e36e9421h4j12vx8111441c41190142400999009()!2412741
+      - REFRESH_TOKEN_SECRET=ugiugs092347()21328^jhfasf009217123287cfjh98121-38390347210
+    depends_on:
+      - mongo_db
+
+volumes:
+  mongo_db: {}
+
+

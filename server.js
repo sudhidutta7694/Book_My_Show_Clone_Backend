@@ -24,7 +24,7 @@ const refreshRouter = require("./routes/refresh");
 const logoutRouter = require("./routes/logout");
 const bookingRouter = require("./routes/booking");
 // Other imports and configurations
- 
+
 
 app.use(express.json()); // Middleware to parse JSON in request bodies
 
