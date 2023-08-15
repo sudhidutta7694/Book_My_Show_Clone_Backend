@@ -13,7 +13,9 @@ const UserDetailsScehma = new mongoose.Schema(
       type: String,
       default: "",
     },
-    favorites: { type: Array }
+    favorites: { type: Array },
+    resetToken: String,
+    resetTokenExpiration: Date,
   },
   {
     collection: "Users",

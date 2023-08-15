@@ -23,8 +23,12 @@ const favoriteRouter = require("./routes/favorite");
 const refreshRouter = require("./routes/refresh");
 const logoutRouter = require("./routes/logout");
 const bookingRouter = require("./routes/booking");
+const resetRouter = require("./routes/reset");
 // Other imports and configurations
+const pdfRoutes = require('./routes/pdfRoutes');
 
+// app.use(express.json());
+app.use(pdfRoutes);
 
 app.use(express.json()); // Middleware to parse JSON in request bodies
 
@@ -35,6 +39,7 @@ app.use(favoriteRouter);
 app.use(refreshRouter);
 app.use(logoutRouter);
 app.use(bookingRouter);
+app.use(resetRouter);
 
 const PORT = 5173;
 app.listen(PORT, () => {
