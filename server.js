@@ -27,9 +27,7 @@ const resetRouter = require("./routes/reset");
 // Other imports and configurations
 const pdfRoutes = require('./routes/pdfRoutes');
 
-app.get('/health', (req, res) => {
-    res.status(200).send('OK');
-});
+app.use('/healthcheck', require('./routes/healthCheck'));
 // app.use(express.json());
 app.use(pdfRoutes);
 
@@ -44,7 +42,7 @@ app.use(logoutRouter);
 app.use(bookingRouter);
 app.use(resetRouter);
 
-const PORT = 5173;
+const PORT = process.env.PORT || 5173;
 app.listen(PORT, () => {
     console.log(`Server Started on Port ${PORT}`);
 });
