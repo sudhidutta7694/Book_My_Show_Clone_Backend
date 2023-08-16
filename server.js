@@ -26,6 +26,8 @@ const bookingRouter = require("./routes/booking");
 const resetRouter = require("./routes/reset");
 // Other imports and configurations
 const pdfRoutes = require('./routes/pdfRoutes');
+const checkoutRoutes = require('./routes/checkout');
+const emailRoutes = require('./routes/email');
 
 app.use('/healthcheck', require('./routes/healthCheck'));
 // app.use(express.json());
@@ -41,6 +43,8 @@ app.use(refreshRouter);
 app.use(logoutRouter);
 app.use(bookingRouter);
 app.use(resetRouter);
+app.use(checkoutRoutes);
+app.use(emailRoutes);
 
 const PORT = process.env.PORT || 5173;
 app.listen(PORT, () => {
