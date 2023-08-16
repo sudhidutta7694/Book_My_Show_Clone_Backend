@@ -15,7 +15,7 @@ mongoose
     .then(() => {
         console.log("Connected to database");
     })
-    .catch((e) => console.log(e)); 
+    .catch((e) => console.log(e));
 
 const authRouter = require("./routes/login"); // Update the path accordingly
 const registerRouter = require("./routes/register");
@@ -27,6 +27,9 @@ const resetRouter = require("./routes/reset");
 // Other imports and configurations
 const pdfRoutes = require('./routes/pdfRoutes');
 
+app.get('/health', (req, res) => {
+    res.status(200).send('OK');
+});
 // app.use(express.json());
 app.use(pdfRoutes);
 
