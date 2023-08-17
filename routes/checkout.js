@@ -23,8 +23,8 @@ router.post('/create-checkout-session', async (req, res) => {
                     quantity: 1,
                 };
             }),
-            success_url: `https://book-my-show-clone-frontend.vercel.app/paySuccess`,
-            cancel_url: `https://book-my-show-clone-frontend.vercel.app/payFailure`,
+            success_url: `http://localhost:3000/paySuccess`,
+            cancel_url: `http://localhost:3000/payFailure`,
         });
 
         // const paymentIntentId = session.payment_intent;
