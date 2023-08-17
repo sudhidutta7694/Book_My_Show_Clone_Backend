@@ -21,10 +21,10 @@ const transporter = nodemailer.createTransport({
 });
 
 async function sendEmailWithPDF(items, recipientEmail) {
-  const pdfFilePath = 'invoice.pdf'; // Relative path to save the generated PDF
+  const pdfFilePath = path.join(__dirname, '..', 'public', 'invoice.pdf'); // Relative path to save the generated PDF
 
   const doc = new PDFDocument();
-  const pdfStream = fs.createWriteStream(pdfFilePath);
+  const pdfStream = fs.createWriteStream(pdfFilePath, { flags: 'a' });;
   doc.pipe(pdfStream);
 
   doc.font('Helvetica-Bold').fontSize(18).text('Invoice and Tickets', { align: 'center' });
@@ -146,7 +146,7 @@ async function sendEmailWithPDF(items, recipientEmail) {
     attachments: [
       {
         filename: 'invoice.pdf', // This is the filename you want to show in the email
-        path: path.join(__dirname, 'public', 'invoice.pdf'), // The path to the public directory and the file
+        path: path.join(__dirname, '..', 'public', 'invoice.pdf'), // The path to the public directory and the file
         contentType: 'application/pdf'
       }
     ]
