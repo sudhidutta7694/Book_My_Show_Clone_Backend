@@ -29,6 +29,7 @@ const pdfRoutes = require('./routes/pdfRoutes');
 const checkoutRoutes = require('./routes/checkout');
 const emailRoutes = require('./routes/email');
 
+
 app.use('/healthcheck', require('./routes/healthCheck'));
 // app.use(express.json());
 app.use(pdfRoutes);
